@@ -1,20 +1,22 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">Über</g-link>
-        <g-link class="nav__link" to="/submit/">Brauerei melden</g-link>
-      </nav>
-    </header>
-    <div class="container">
+    <Header />
+    <div class="container mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
       <slot/>
     </div>
   </div>
 </template>
+
+
+<script>
+import Header from '~/components/Header.vue'
+
+export default {
+  components: {
+    Header
+  }
+}
+</script>
 
 <static-query>
 query {
@@ -32,7 +34,7 @@ body {
   line-height: 1.5;
 }
 
-.layout {
+/* .layout {
   max-width: 760px;
   margin: 0 auto;
   padding-left: 20px;
@@ -49,5 +51,5 @@ body {
 
 .nav__link {
   margin-left: 20px;
-}
+} */
 </style>

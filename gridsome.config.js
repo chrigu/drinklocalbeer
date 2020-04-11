@@ -14,7 +14,16 @@ module.exports = {
       options: {
         typeName: 'Brewery',
         path: './content/breweries/**/*.md',
+        refs: {
+          cantone: {
+            typeName: 'Cantone',
+            create: true
+          }
+        }
       }
+    },
+    {
+      use: 'gridsome-plugin-tailwindcss',
     }
   ],
   templates: {

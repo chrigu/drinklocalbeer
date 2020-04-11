@@ -1,9 +1,5 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
     <h1>Hello, world!</h1>
 
     <section class="misson">
@@ -13,9 +9,28 @@
     </section>
 
     <section class="breweries">
-      <div v-for="edge in $page.breweries.edges" :key="edge.node.id" class="brewery">
-        <h2>{{ edge.node.name }}</h2>
-      </div>
+      <ol class="breweries__list breweries-list">
+        <li v-for="cantoneEdge in $page.cantones.edges" :key="cantoneEdge.node.id">
+          <h2>{{cantoneEdge.node.title}}</h2>
+          <ol>
+            <li v-for="breweryEdge in cantoneEdge.node.belongsTo.edges" :key="breweryEdge.node.id" class="brewery" itemscope itemtype="schema.org/PostalAddress">
+              <h2>{{ breweryEdge.node.name }}</h2>
+              <dl>
+                <dt>Adresse</dt>
+                <dd itemprop="streetAddress">{{breweryEdge.node.address}}</dd>
+                <dt>Ort</dt>
+                <dd itemprop="addressLocality">{{breweryEdge.node.town}}</dd>
+                <dt>PLZ</dt>
+                <dd itemprop="postalCode">{{breweryEdge.node.zip}}</dd>
+                <dt>Web</dt>
+                <dd>{{breweryEdge.node.www}}</dd>
+                <dt>Shop</dt>
+                <dd>{{breweryEdge.node.shop}}</dd>
+              </dl>
+            </li>
+          </ol>
+        </li>
+      </ol>
     </section>
 
 
@@ -27,14 +42,29 @@
   </Layout>
 </template>
 
-
 <page-query>
 query {
-  breweries: allBrewery(sortBy: "cantone", order: ASC) {
+  cantones: allCantone(sortBy: "title", order: ASC)  {
     edges {
       node {
         id
-        name
+        title
+        belongsTo {
+          edges {
+            node {
+              ... on Brewery {
+                id
+                name
+                address
+                town
+                zip
+                www
+                shop
+              }
+            }
+          }
+          totalCount
+        }
       }
     }
   }
@@ -44,7 +74,7 @@ query {
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Unterstütze Schweizer Brauereien'
   }
 }
 </script>
