@@ -32,6 +32,14 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
+  color: theme('colors.gray.800');
+}
+
+a {
+  color: theme('colors.green.600');
+  &:hover {
+    color: theme('colors.green.800');
+  }
 }
 
 /* .layout {
