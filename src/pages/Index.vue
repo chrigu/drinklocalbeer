@@ -13,7 +13,7 @@
     <section class="breweries">
       <ol class="breweries__list breweries-list">
         <li v-for="cantoneEdge in $page.cantones.edges" :key="cantoneEdge.node.id" class="mb-12">
-          <h2 class="font-semibold border-b border-gray-500 mb-4 pb-2">{{cantoneEdge.node.title}}</h2>
+          <h2 class="font-serif border-b border-gray-500 mb-4 pb-2">{{cantoneEdge.node.title}}</h2>
           <ol>
             <li v-for="breweryEdge in cantoneEdge.node.belongsTo.edges" 
                 :key="breweryEdge.node.id" 
@@ -29,7 +29,6 @@
                 <a :href="breweryEdge.node.www">{{breweryEdge.node.www}}</a>
               </div>
               <div v-if="breweryEdge.node.shop">
-                <p>Shop</p>
                 <a :href="breweryEdge.node.shop">{{breweryEdge.node.shop}}</a>
               </div>
             </li>
@@ -37,12 +36,6 @@
         </li>
       </ol>
     </section>
-
-
-    <p class="home-links">
-      <a href="https://github.com/chrigu/drinklocalbeer" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
   </Hero>
 </template>
 
@@ -96,6 +89,7 @@ export default {
 .hero {
   height: 400px;
   background-image: url('../assets/beer-bar.jpg');
+  background-size: cover;
   color: theme('colors.white');
 }
 </style>
