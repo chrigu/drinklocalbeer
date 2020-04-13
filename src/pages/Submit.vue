@@ -5,7 +5,7 @@
       Ist deine schweizer Lieblingsbrauerei hier nicht aufgeführt? Kein Problem! Fülle das
       Formular aus und wir werden die Brauerei in die Liste aufnehmen.
     </p>
-    <form name="submit-brewery" class="">
+    <form name="submit-brewery" netlify>
       <div class="form-field">
         <label class="form-field__label" for="name">Name der Brauerei</label>
         <input
