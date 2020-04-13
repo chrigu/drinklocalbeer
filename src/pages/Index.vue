@@ -1,13 +1,15 @@
 <template>
-  <Layout>
-    <h1 class="page-title">Unterstütze lokale Brauereien</h1>
-
-    <section class="misson mb-8">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-      </p>
-    </section>
-
+  <Hero>
+    <template slot="hero">
+      <div class="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl pt-8">
+        <h1 class="page-title">Unterstütze lokale Brauereien</h1>
+        <section class="misson mb-8">
+          <p>
+            Auch an Kleinbrauereien geht die Corona-Krise nicht spurlos vorbei. Darum unterstütze eine Brauerei in deiner Nähe oder erweitere deinen Bierhorizont.
+          </p>
+        </section>
+      </div>
+    </template>
     <section class="breweries">
       <ol class="breweries__list breweries-list">
         <li v-for="cantoneEdge in $page.cantones.edges" :key="cantoneEdge.node.id" class="mb-12">
@@ -41,7 +43,7 @@
       <a href="https://github.com/chrigu/drinklocalbeer" target="_blank" rel="noopener">GitHub</a>
     </p>
 
-  </Layout>
+  </Hero>
 </template>
 
 <page-query>
@@ -74,9 +76,14 @@ query {
 </page-query>
 
 <script>
+import Hero from '~/layouts/Hero.vue'
+
 export default {
   metaInfo: {
     title: 'Unterstütze Schweizer Brauereien'
+  },
+  components: {
+    Hero
   }
 }
 </script>
@@ -84,5 +91,11 @@ export default {
 <style>
 .home-links a {
   margin-right: 1rem;
+}
+
+.hero {
+  height: 400px;
+  background-image: url('../assets/beer-bar.jpg');
+  color: theme('colors.white');
 }
 </style>

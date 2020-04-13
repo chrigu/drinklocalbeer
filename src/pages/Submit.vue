@@ -2,7 +2,7 @@
   <Layout>
     <h1 class="page-title">Melde deine Lieblingsbrauerei</h1>
     <p class="mb-4">
-      Ist deine Lieblingsbrauerei hier nicht aufgeführt? Kein Problem! Fülle das
+      Ist deine schweizer Lieblingsbrauerei hier nicht aufgeführt? Kein Problem! Fülle das
       Formular aus und wir werden die Brauerei in die Liste aufnehmen.
     </p>
     <form name="submit-brewery" class="">
@@ -47,7 +47,7 @@
         />
       </div>
       <div class="form-field">
-        <input type="submit" value="Abschicken!" />
+        <input type="submit" value="Abschicken!" class="bg-steel-blue p-4 mt-2 rounded-lg"/>
       </div>
     </form>
   </Layout>
@@ -62,6 +62,11 @@ export default {
 </script>
 
 <style scoped>
+
+.form-field {
+  @apply mb-4
+}
+
 .form-field__label {
   @apply block font-semibold mb-2;
 }
