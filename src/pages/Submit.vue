@@ -9,7 +9,7 @@
         </p>
       </div>
     </template>
-    <form name="submit-brewery" netlify>
+    <form name="submit-brewery" data-netlify="true" action="/success/" method="POST">
       <div class="form-field">
         <label class="form-field__label" for="name">Name der Brauerei</label>
         <input
