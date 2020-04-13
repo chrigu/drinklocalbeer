@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <h1 class="text-3xl font-semibold">Hello, world!</h1>
+    <h1 class="page-title">Unterstütze lokale Brauereien</h1>
 
-    <section class="misson">
+    <section class="misson mb-8">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
       </p>

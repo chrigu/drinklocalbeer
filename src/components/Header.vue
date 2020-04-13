@@ -31,7 +31,8 @@ query {
 <style>
 .nav-button {
     @apply px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg;
-
+    color: theme('colors.gray.800');
+        
     &:md {
         @apply mt-0 ml-4;
     }

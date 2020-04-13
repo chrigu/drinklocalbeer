@@ -1,14 +1,24 @@
-# Default starter for Gridsome
+# Drink local beer
 
-This is the project you get when you run `gridsome create new-project`.
+Support local breweries in Switzerland 🍺
 
-### 1. Install Gridsome CLI tool if you don't have
+## Installation
 
-`npm install --global @gridsome/cli`
+`yarn install`
 
-### 2. Create a Gridsome project
+## Run
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+`gridsome develop` to start a local dev server at `http://localhost:8080`
+
+## Build
+
+`gridsome build`
+
+## Resources
+
+(https://color.adobe.com/beer-two-color-theme-10348265)[Color theme]
+
+
+## Todo
+
+- Fix sass-loader

@@ -36,10 +36,14 @@ body {
 }
 
 a {
-  color: theme('colors.green.600');
+  color: theme('colors.glass-blue');
   &:hover {
-    color: theme('colors.green.800');
+    color: theme('colors.blue.800');
   }
+}
+
+.page-title {
+  @apply text-3xl font-semibold mb-4;
 }
 
 /* .layout {
