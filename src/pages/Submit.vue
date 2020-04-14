@@ -9,7 +9,7 @@
         </p>
       </div>
     </template>
-    <form name="submit-brewery" data-netlify="true" action="/success/" method="POST">
+    <form name="submit-brewery" data-netlify="true" @submit.prevent="handleSubmit" v-if="!success">
       <div class="form-field">
         <label class="form-field__label" for="name">Name der Brauerei</label>
         <input
@@ -17,6 +17,7 @@
           type="text"
           name="name"
           id="name"
+          v-model="form.name"
           required
         />
       </div>
@@ -27,6 +28,8 @@
           type="text"
           name="address"
           id="address"
+          placeholder="Hauptstrasse 1, 3000 Bern"
+          v-model="form.address"
           required
         />
       </div>
@@ -37,6 +40,8 @@
           type="text"
           name="website"
           id="website"
+          placeholder="https://www.drinklocalbeer.ch"
+          v-model="form.website"
           required
         />
       </div>
@@ -46,25 +51,71 @@
           class="form-field__input"
           type="text"
           name="shop"
-          id="shop"
-          required
+          id="form.shop"
+          placeholder="https://www.drinklocalbeer.ch/shop"
+          v-model="form.shop"
         />
       </div>
       <div class="form-field">
-        <input type="submit" value="Abschicken!" class="bg-steel-blue p-4 mt-2 rounded-lg hover:bg-water-blue cursor-pointer"/>
+        <input type="submit" enterkeyhint="send" value="Abschicken!" class="bg-steel-blue p-4 mt-2 rounded-lg hover:bg-water-blue cursor-pointer"/>
       </div>
     </form>
+    <div v-else>
+      <p class="mb-4">
+          Deine Angaben sind auf dem Weg zu uns und werden bald veröffentlicht.
+      </p>
+      <p>
+          Zurück zur <g-link to="/">Starseite</g-link>.
+      </p>
+    </div>
   </Hero>
 </template>
 
 <script>
+import axios from "axios";
 import Hero from '~/layouts/Hero.vue'
 
 export default {
   metaInfo: {
     title: "Melden"
   },
-  components: {Hero}
+  components: {Hero},
+  data() {
+    return {
+      form: {
+        name: '',
+        address: '',
+        website: '',
+        shop: ''
+      },
+      success: false
+    }
+  },
+  methods: {
+    // https://www.netlify.com/blog/2018/09/07/how-to-integrate-netlify-forms-in-a-vue-app/
+    encode (data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
+    handleSubmit () {
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      };
+      axios.post(
+        "/",
+        this.encode({
+          "form-name": "submit-brewery",
+          ...this.form
+        }),
+        axiosConfig
+      ).then(() => {
+        this.success = true
+      })
+    }
+  }
 };
 </script>
 
