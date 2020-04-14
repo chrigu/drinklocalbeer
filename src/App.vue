@@ -4,7 +4,7 @@
     <router-view class="flex-1" />
     <footer class="bg-lager-yellow h-12 lg:px-8 md:px-6 leading-10">
         <p class="footer-links">
-            <a href="https://github.com/chrigu/drinklocalbeer" target="_blank" rel="noopener">Code</a>
+            <!--a href="https://github.com/chrigu/drinklocalbeer" target="_blank" rel="noopener">Code</a-->
         </p>
     </footer>
   </div>
