@@ -1,11 +1,11 @@
 <template>
   <Hero>
     <template slot="hero">
-      <div class="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl pt-8">
+      <div class="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl pt-8  px-2 sm:px-0">
         <h1 class="page-title">Unterstütze lokale Brauereien</h1>
         <section class="misson mb-8">
           <p>
-            Auch an Kleinbrauereien geht die Corona-Krise nicht spurlos vorbei. Darum unterstütze eine Brauerei in deiner Nähe oder erweitere deinen Bierhorizont.
+            Auch an Kleinbrauereien geht die Corona-Krise nicht spurlos vorbei. Darum unterstütze eine Brauerei in deiner Nähe und erweitere deinen Bierhorizont.
           </p>
         </section>
       </div>
@@ -20,7 +20,7 @@
                 class="brewery mb-4" 
                 itemscope 
                 itemtype="schema.org/PostalAddress">
-              <h3 class="font-semibold">{{ breweryEdge.node.name }}</h3>
+              <h3 class="font-semibold" :class="{'is-shop': breweryEdge.node.isShop}">{{ breweryEdge.node.name }}</h3>
               <div itemprop="streetAddress">{{breweryEdge.node.address}}</div>
               <div>
                 <span class="pr-1" itemprop="postalCode">{{breweryEdge.node.zip}}</span><span itemprop="addressLocality">{{breweryEdge.node.town}}</span>
@@ -57,6 +57,7 @@ query {
                 zip
                 www
                 shop
+                isShop
               }
             }
           }
@@ -91,5 +92,13 @@ export default {
   background-image: url('../assets/beer-bar.jpg');
   background-size: cover;
   color: theme('colors.white');
+}
+
+.is-shop {
+  &:after {
+    padding-left: 0.5rem;
+    font-weight: 400;
+    content: "(Shop)";
+  }
 }
 </style>
