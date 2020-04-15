@@ -10,5 +10,5 @@ date: 2020-04-14
 added_by: "Chrigu"
 title: "craftbrew"
 isShop: true
-tags: ["Jura"]
+tags: ["Zürich"]
 ---

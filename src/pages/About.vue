@@ -4,6 +4,8 @@
     <p class="mb-4">
       Bier trinken und Gutes tun. Das ist die Idee dieser Seite. Unterstütze lokale Brauereien, die in der jetztigen Situation auf jede Hilfe angewiesen sind.
     </p>
+    <h2 class="mb-2 font-semibold">Code</h2>
+    <p class="mb-2"><a href="https://github.com/chrigu/drinklocalbeer">Code auf Github</a>
     <h2 class="mb-2 font-semibold">Bilder</h2>
     <ul>
       <li class="mb-2">
